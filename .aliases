@@ -1,0 +1,16 @@
+# Local exports
+alias reload='echo "exec \$SHELL" && exec $SHELL'  # reload shell
+alias g2w="cd $HOME/Documents/repo" # go to repos dir
+alias g2g="cd $HOME/Documents/repo/go" # go to Go dir
+alias edot="code $HOME/.zshrc $HOME/.aliases $HOME/.zsh_functions $HOME/.zsh_install_functions $HOME/.bundles.txt $HOME/.zshenv" # Edit dotfiles
+
+# docker
+alias docker="lima nerdctl" # lima
+
+# CLIs
+alias ic=ibmcloud # ibm cloud
+alias k=kubectl # kubectl
+alias l=limactl # lima
+
+# SSH
+alias pubkey="more $HOME/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
