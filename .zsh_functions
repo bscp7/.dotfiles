@@ -1,0 +1,42 @@
+# ZSH functions
+
+dotenv-export-to-env() {
+    #https://gist.github.com/mihow/9c7f559807069a03e302605691f85572
+    set -o allexport
+    [ -f $1 ] source $1
+    set +o allexport
+}
+
+encode64() {
+    echo -ne "$1" | base64
+}
+
+decode64() {
+    echo -ne "$1" | base64 --decode
+}
+
+zprof() {
+    for i in $(seq 1 10);
+    do
+        /usr/bin/time /bin/zsh -i -c exit; 
+    done;
+}
+
+wimi() {
+  ip=$(dig +short myip.opendns.com @resolver1.opendns.com)
+  echo ${ip} | pbcopy | echo '=> Public IP copied to pasteboard.'
+}
+
+# git ignore file
+gi() {
+	curl -s "https://www.gitignore.io/api/$*"
+}
+
+# git - don't ask ssh password all the time
+grc() {
+    if [ "$(uname -s)" = "Darwin" ]; then
+        git config --global credential.helper osxkeychain
+    else
+        git config --global credential.helper cache
+    fi
+}
