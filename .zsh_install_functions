@@ -1,0 +1,31 @@
+# install scripts
+
+install-pure-prompt() {
+    # setup pure prompt https://github.com/sindresorhus/pure#manually
+    mkdir -p "$HOME/.zsh"
+    git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
+}
+
+install-antibody() {
+    # install antibody
+    antibody bundle < "$HOME/.bundles.txt" > "$HOME/.zsh_plugins.sh"
+    antibody update
+}
+
+install-tmux-config() {
+    # clone tmux from repo and overwrite configuration files in path $HOME
+    rm -rf /tmp/.tmux
+    git clone https://github.com/gpakosz/.tmux.git /tmp/.tmux
+    cp /tmp/.tmux/.tmux.conf $HOME/.tmux.conf
+    cp /tmp/.tmux/.tmux.conf.local $HOME/.tmux.conf.local
+}
+
+install-vimplug() {
+    # Clone repo and overwrite configration files in path $HOME
+    rm -rf /tmp/.vimplug
+    mkdir -p $HOME/.vim/autoload
+    git clone https://github.com/junegunn/vim-plug.git /tmp/.vimplug
+    cp /tmp/.vimplug/plug.vim $HOME/.vim/autoload/plug.vim
+    vi -c "PlugInstall"
+}
+
