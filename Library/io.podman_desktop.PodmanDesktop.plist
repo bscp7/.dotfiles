@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Example Podman launchctl file taken from: $HOME/Library/LaunchAgents/io.podman_desktop.PodmanDesktop.plist-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>io.podman_desktop.PodmanDesktop</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Applications/Podman Desktop.app/Contents/MacOS/Podman Desktop</string>
+        
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/Users/bhavesh/Library/Logs/Podman Desktop/launchd-stdout.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/bhavesh/Library/Logs/Podman Desktop/launchd-stderr.log</string>
+</dict>
+</plist>

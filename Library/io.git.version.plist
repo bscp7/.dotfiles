@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- File Location: $HOME/Library/LaunchAgents/io.git.version.plist -->
+<plist version="1.0">
+    <dict>
+        <key>Label</key>
+        <string>io.git.version</string>
+        <key>ProgramArguments</key>
+        <array>
+            <string>pwd</string>
+            <!-- <string>version</string> -->
+        </array>
+        <key>WorkingDirectory</key>
+        <string>/Users/bhavesh/NotesLogSeq-Personal</string> <!-- this works -->
+        <!-- This does not work <string>/Users/bhavesh/Documents/NotesLogSeq-Personal</string> -->
+        <key>StandardOutPath</key>
+        <string>/Users/bhavesh/Library/Logs/git.version/launchd-stdout.log</string>
+        <key>StandardErrorPath</key>
+        <string>/Users/bhavesh/Library/Logs/git.version/launchd-stderr.log</string>
+    </dict>
+</plist>

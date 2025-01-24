@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- File Location: $HOME/Library/LaunchAgents/io.git.notes_push.plist -->
+<plist version="1.0">
+    <dict>
+        <key>Label</key>
+        <string>io.git.notes_push</string>
+        <key>ProgramArguments</key>
+        <array>
+            <string>git</string>
+            <string>push</string>
+        </array>
+        <key>WorkingDirectory</key>
+        <string>/Users/bhavesh/NotesLogSeq</string>
+        <key>EnvironmentVariables</key>
+        <dict>
+            <key>GIT_CURL_VERBOSE</key>
+            <string>1</string>
+            <key>GIT_TRACE_PACKET</key>
+            <string>1</string>
+            <key>GIT_TRACE</key>
+            <string>1</string>
+            <key>PATH</key>
+            <string>/Users/bhavesh/.nix-profile/bin:/nix/var/nix/profiles/default/bin</string>
+        </dict>
+        <key>StartInterval</key>
+        <integer>3600</integer>
+        <key>StandardOutPath</key>
+        <string>/Users/bhavesh/Library/Logs/git.notes/launchd-stdout.log</string>
+        <key>StandardErrorPath</key>
+        <string>/Users/bhavesh/Library/Logs/git.notes/launchd-stderr.log</string>
+    </dict>
+</plist>

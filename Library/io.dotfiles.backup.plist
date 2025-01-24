@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- File Location: $HOME/Library/LaunchAgents/io.dotfiles.backup.plist -->
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>io.dotfiles.backup</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>zip</string>
+		<string>/Users/bhavesh/dot_files.zip</string>
+		<string>/Users/bhavesh/.zshrc</string>
+		<string>/Users/bhavesh/.aliases</string>
+		<string>/Users/bhavesh/.zshenv</string>
+		<string>/Users/bhavesh/Library/LaunchAgents</string>
+		<string>/Users/bhavesh/reload-launchctl-plist.sh</string>
+	</array>
+	<key>WorkingDirectory</key>
+	<string>/Users/bhavesh</string>
+	<!-- <key>RunAtLoad</key>
+	<true/> -->
+	<key>StartInterval</key>
+	<integer>86400</integer>
+	<key>StandardErrorPath</key>
+	<string>/tmp/io.dotfiles.backup-stderr.log</string>
+	<key>StandardOutPath</key>
+	<string>/tmp/io.dotfiles.backup-stdout.log</string>
+</dict>
+</plist>
