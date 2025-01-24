@@ -1,7 +1,15 @@
-# run `install-antibody` command to install antibody
-# update Antibody plugins file $HOME/bundles.txt to install new plugin
-# source the result file
-source ~/.zsh_plugins.sh
+# Load ZSH plugins
+source $HOME/antigen.zsh
+
+antigen bundle git
+antigen bundle benvan/sandboxd
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zdharma-continuum/fast-syntax-highlighting
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle lukechilds/zsh-nvm
+
+antigen apply
 
 # Run `install-pure-prompt` command to setup pure-prompt
 fpath+=("$HOME/.zsh/pure")
