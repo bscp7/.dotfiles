@@ -1,16 +1,58 @@
+# system info
+alias system-info="system_profiler SPSoftwareDataType SPHardwareDataType"
+
+# fixed
+alias ls='ls --color=auto'	    # ls listing
+alias ll='ls -larth --color'	    # ls long listing
+alias l.='ls -d .* --color=auto'    # ls hidden files
+
+# conda
+alias cona="conda activate"
+alias cond="conda deactivate || deactivate"
+alias conl="conda list || pip list"
+alias conel="conda env list"
+alias coner="conda env remove --name"
+
+# utilities
+alias temperature='sudo powermetrics --samplers smc'	    # cpu and gpu temperature
+
 # Local exports
 alias reload='echo "exec \$SHELL" && exec $SHELL'  # reload shell
 alias g2w="cd $HOME/Documents/repo" # go to repos dir
 alias g2g="cd $HOME/Documents/repo/go" # go to Go dir
-alias edot="code $HOME/.zshrc $HOME/.aliases $HOME/.zsh_functions $HOME/.zsh_install_functions $HOME/.bundles.txt $HOME/.zshenv" # Edit dotfiles
+alias edot="code $HOME/.zshrc $HOME/.aliases $HOME/.zshenv $HOME/Library/LaunchAgents $HOME/reload-launchctl-plist.sh" # Edit dotfiles
 
 # docker
-alias docker="lima nerdctl" # lima
+alias d="docker" 
+alias dc="docker compose"
+alias dcup="docker compose up --detach"
+alias dclogs="docker compose logs -f"
+alias dcps="docker compose ps"
+alias dctop="docker compose top"
+alias dcdown="docker compose down"
 
-# CLIs
-alias ic=ibmcloud # ibm cloud
-alias k=kubectl # kubectl
+# Local o11y shortcuts
+alias kpf-k="kubectl port-forward service/quickstart-kb-http 5601"
+alias kpf-es="kubectl port-forward service/quickstart-es-http 9200"
+alias kpf-prom="kubectl --namespace monitoring port-forward svc/prometheus-k8s 9090"
+alias kpf-am="kubectl --namespace monitoring port-forward svc/alertmanager-main 9093"
+
+alias k="kubectl" # kubectl
+alias kga="kubectl get all"
+alias kgaa="kubectl get all --all-namespaces"
+alias kstorage="kubectl get storageclasses && kubectl get pv && kubectl get pvc"
 alias l=limactl # lima
 
 # SSH
-alias pubkey="more $HOME/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+alias pubkey="more $HOME/.ssh/id_ed25519.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+
+# Start StarCoder Container Image in Docker
+alias start-copilot="docker run -it --detach --name starcoder --env TABBY_DISABLE_USAGE_COLLECTION=1 -p 8080:8080 -v /tmp/.tabby:/data tabbyml/tabby serve --model TabbyML/StarCoder-1B"
+alias stop-copilot="docker stop starcoder -s SIGTERM && docker rm starcoder"
+alias pause-copilot="docker pause starcoder"
+alias resume-copilot="docker unpause starcoder"
+
+# install lsp in conda environment and shortcuts for quick environment setup
+alias install-jupyter-lsp="conda install -c conda-forge jupyterlab jupyterlab-lsp python-lsp-server"
+alias install-conda-packages="conda install -c pytorch -c conda-forge ipywidgets jupyterlab pandas numpy matplotlib transformers scikit-learn tensorflow keras pytorch torchvision torchaudio langchain langchain-core langchain-community langchain-text-splitters langchain-openai langchain-experimental langchain-chroma streamlit ffmpeg sentence-transformers black"
+alias install-pip-packages="pip install --upgrade pip && pip install -r ${HOME}/aiml-pip-requirements.txt"
